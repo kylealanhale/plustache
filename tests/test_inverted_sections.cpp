@@ -3,14 +3,13 @@
 #include <fstream>
 #include <gtest/gtest.h>
 
-#include <plustache/template.hpp>
-#include <plustache/plustache_types.hpp>
+#include <plustache/plustache.hpp>
 
 // The fixture for testing class Foo.
 class InvertedSectionsTest : public ::testing::Test
 {
  protected:
-    PlustacheTypes::ObjectType ctx;
+    Plustache::Object ctx;
 
     InvertedSectionsTest()
     {

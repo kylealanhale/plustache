@@ -37,8 +37,8 @@
 		2F97093B1AF9A8D600D82006 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F97092F1AF9A7F200D82006 /* libgtest.a */; };
 		2F97093C1AF9AAC100D82006 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2F9709011AF9A63800D82006 /* GoogleTests.mm */; };
 		2FEF3FFC1B21EC3F00A1FFD7 /* context.hpp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F9708FB1AF999B700D82006 /* context.hpp */; };
-		2FEF3FFD1B21EC3F00A1FFD7 /* plustache_types.hpp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F9708FC1AF999B700D82006 /* plustache_types.hpp */; };
 		2FEF3FFE1B21EC3F00A1FFD7 /* template.hpp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F9708FD1AF999B700D82006 /* template.hpp */; };
+		2FEF40001B21FD0600A1FFD7 /* plustache.hpp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2FEF3FFF1B21FCED00A1FFD7 /* plustache.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				2FEF40001B21FD0600A1FFD7 /* plustache.hpp in CopyFiles */,
 				2FEF3FFC1B21EC3F00A1FFD7 /* context.hpp in CopyFiles */,
-				2FEF3FFD1B21EC3F00A1FFD7 /* plustache_types.hpp in CopyFiles */,
 				2FEF3FFE1B21EC3F00A1FFD7 /* template.hpp in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,13 +86,13 @@
 		2F9708F71AF9993B00D82006 /* test_sections_plustache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_sections_plustache.cpp; sourceTree = "<group>"; };
 		2F9708F81AF9993B00D82006 /* test_simple_plustache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_simple_plustache.cpp; sourceTree = "<group>"; };
 		2F9708FB1AF999B700D82006 /* context.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = context.hpp; sourceTree = "<group>"; };
-		2F9708FC1AF999B700D82006 /* plustache_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = plustache_types.hpp; sourceTree = "<group>"; };
 		2F9708FD1AF999B700D82006 /* template.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = template.hpp; sourceTree = "<group>"; };
 		2F9709011AF9A63800D82006 /* GoogleTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleTests.mm; sourceTree = SOURCE_ROOT; };
 		2F9709061AF9A6A900D82006 /* libplustache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libplustache.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F97090F1AF9A6D600D82006 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F97092F1AF9A7F200D82006 /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F9709331AF9A86D00D82006 /* gtest-all.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-all.cc"; sourceTree = "<group>"; };
+		2FEF3FFF1B21FCED00A1FFD7 /* plustache.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = plustache.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				2F9708FB1AF999B700D82006 /* context.hpp */,
-				2F9708FC1AF999B700D82006 /* plustache_types.hpp */,
 				2F9708FD1AF999B700D82006 /* template.hpp */,
+				2FEF3FFF1B21FCED00A1FFD7 /* plustache.hpp */,
 			);
 			path = plustache;
 			sourceTree = "<group>";
@@ -225,9 +225,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F9709081AF9A6A900D82006 /* Build configuration list for PBXNativeTarget "plustache" */;
 			buildPhases = (
+				2FEF3FFB1B21EC3800A1FFD7 /* CopyFiles */,
 				2F9709021AF9A6A900D82006 /* Sources */,
 				2F9709031AF9A6A900D82006 /* Frameworks */,
-				2FEF3FFB1B21EC3800A1FFD7 /* CopyFiles */,
 			);
 			buildRules = (
 			);

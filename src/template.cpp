@@ -9,8 +9,11 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
+#include <iostream>
+#include <fstream>
+#include <streambuf>
+#include <regex>
 
-#include <plustache/plustache_types.hpp>
 #include <plustache/context.hpp>
 
 using namespace Plustache;
@@ -234,7 +237,7 @@ std::string template_t::render_sections(const std::string& tmplate,
         trim(modifier);
         std::string repl = "";
         std::string show = "false";
-        CollectionType values;
+        Collection values;
         values = ctx.get(key);
         
         if (values.size() == 1)
@@ -264,7 +267,7 @@ std::string template_t::render_sections(const std::string& tmplate,
         // Generate content
         if (show == "true")
         {
-            for(CollectionType::iterator it = values.begin();
+            for(Collection::iterator it = values.begin();
                 it != values.end(); ++it)
             {
                 std::string content = matches[3];
@@ -333,7 +336,7 @@ std::string template_t::render(const std::string& tmplate, const Context& ctx)
  * @return rendered std::string
  */
 std::string template_t::render(const std::string& tmplate,
-                               const ObjectType& ctx)
+                               const Object& ctx)
 {
     // get template
     std::string tmp = get_template(tmplate);

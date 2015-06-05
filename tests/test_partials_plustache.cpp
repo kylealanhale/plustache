@@ -3,8 +3,7 @@
 #include <fstream>
 #include <gtest/gtest.h>
 
-#include <plustache/template.hpp>
-#include <plustache/plustache_types.hpp>
+#include <plustache/plustache.hpp>
 
 // The fixture for testing class Foo.
 class PartialsTest : public ::testing::Test
@@ -14,7 +13,7 @@ class PartialsTest : public ::testing::Test
     std::string result_file;
     std::string template_string;
     std::string partial_string;
-    PlustacheTypes::ObjectType ctx;
+    Plustache::Object ctx;
     std::string file;
     std::string partial_file;
 

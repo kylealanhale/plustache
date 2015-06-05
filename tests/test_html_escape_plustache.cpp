@@ -3,8 +3,7 @@
 #include <fstream>
 #include <gtest/gtest.h>
 
-#include <plustache/template.hpp>
-#include <plustache/plustache_types.hpp>
+#include <plustache/plustache.hpp>
 
 // The fixture for testing class Foo.
 class HtmlEscapeTest : public ::testing::Test
@@ -16,7 +15,7 @@ class HtmlEscapeTest : public ::testing::Test
     std::string result_unescaped_file;
     std::string escaped_string;
     std::string unescaped_string;
-    PlustacheTypes::ObjectType ctx;
+    Plustache::Object ctx;
     std::string escaped_file;
     std::string unescaped_file;
 

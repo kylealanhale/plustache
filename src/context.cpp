@@ -5,7 +5,6 @@
  */
 
 #include <plustache/context.hpp>
-#include <plustache/plustache_types.hpp>
 
 using namespace Plustache;
 
@@ -29,7 +28,7 @@ Context::~Context()
  */
 int Context::add(const std::string& key, const std::string& value)
 {
-    PlustacheTypes::ObjectType obj;
+    Object obj;
     obj[key] = value;
     ctx[key].push_back(obj);
     return 0;
@@ -43,7 +42,7 @@ int Context::add(const std::string& key, const std::string& value)
  *
  * @return 0 on success
  */
-int Context::add(const std::string& key, PlustacheTypes::CollectionType& c)
+int Context::add(const std::string& key, Collection& c)
 {
     if (ctx.find(key) == ctx.end())
     {
@@ -51,7 +50,7 @@ int Context::add(const std::string& key, PlustacheTypes::CollectionType& c)
     }
     else
     {
-        for(PlustacheTypes::CollectionType::iterator it = c.begin();
+        for(Collection::iterator it = c.begin();
             it != c.end(); ++it)
         {
             (*this).add(key, (*it));
@@ -68,11 +67,11 @@ int Context::add(const std::string& key, PlustacheTypes::CollectionType& c)
  *
  * @return 0
  */
-int Context::add(const std::string& key, const PlustacheTypes::ObjectType& o)
+int Context::add(const std::string& key, const Object& o)
 {
     if (ctx.find(key) == ctx.end())
     {
-      PlustacheTypes::CollectionType c;
+      Collection c;
       c.push_back(o);
       ctx[key] = c;
     }
@@ -91,9 +90,9 @@ int Context::add(const std::string& key, const PlustacheTypes::ObjectType& o)
  *
  * @return 0
  */
-int Context::add(const PlustacheTypes::ObjectType& o)
+int Context::add(const Object& o)
 {
-    for(PlustacheTypes::ObjectType::const_iterator it = o.begin();
+    for(Object::const_iterator it = o.begin();
         it != o.end(); it++)
     {
         (*this).add(it->first, it->second);
@@ -114,14 +113,14 @@ int Context::add(const PlustacheTypes::ObjectType& o)
  *
  * @return collection for the keyword
  */
-PlustacheTypes::CollectionType Context::get(const std::string& key) const
+Collection Context::get(const std::string& key) const
 {
-  PlustacheTypes::CollectionType ret;
-  std::map<std::string, PlustacheTypes::CollectionType> :: const_iterator it;
+  Collection ret;
+  std::map<std::string, Collection> :: const_iterator it;
   it = ctx.find(key);
   if (it == ctx.end())
   {
-    PlustacheTypes::ObjectType o;
+    Object o;
     o[key] = "";
     ret.push_back(o);
   }

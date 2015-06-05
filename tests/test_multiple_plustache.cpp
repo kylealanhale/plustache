@@ -3,8 +3,7 @@
 #include <fstream>
 #include <gtest/gtest.h>
 
-#include <plustache/template.hpp>
-#include <plustache/plustache_types.hpp>
+#include <plustache/plustache.hpp>
 
 // The fixture for testing class Foo.
 class MultipleTest : public ::testing::Test
@@ -14,7 +13,7 @@ class MultipleTest : public ::testing::Test
     std::string result_file;
     std::string template_string;
     std::string expected;
-    PlustacheTypes::ObjectType ctx;
+    Plustache::Object ctx;
     std::string file;
     MultipleTest()
     {

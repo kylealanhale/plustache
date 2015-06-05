@@ -7,22 +7,31 @@
 #define PLUSTACHE_CONTEXT_H
 
 #include <iostream>
-#include <plustache/plustache_types.hpp>
+#include <string>
+#include <map>
+#include <vector>
 
 namespace Plustache {
-	class Context {
-	public:
-	    Context ();
-	    ~Context ();
-	    int add(const std::string& key, const std::string& value);
-	    int add(const std::string& key, PlustacheTypes::CollectionType& c);
-	    int add(const std::string& key, const PlustacheTypes::ObjectType& o);
-	    int add(const PlustacheTypes::ObjectType& o);
-	    PlustacheTypes::CollectionType get(const std::string& key) const;
 
-	private:
-	    /* data */
-	    std::map<std::string, PlustacheTypes::CollectionType> ctx;
-	};
+class Context;
+
+typedef std::map<std::string, std::string> Object;
+typedef std::vector<Object> Collection;
+
+class Context {
+  public:
+    Context ();
+    ~Context ();
+    int add(const std::string& key, const std::string& value);
+    int add(const std::string& key, Collection& c);
+    int add(const std::string& key, const Object& o);
+    int add(const Object& o);
+    Collection get(const std::string& key) const;
+
+  private:
+    /* data */
+    std::map<std::string, Collection> ctx;
+};
+
 } // namespace Plustache
 #endif

@@ -3,9 +3,7 @@
 #include <fstream>
 #include <gtest/gtest.h>
 
-#include <plustache/template.hpp>
-#include <plustache/context.hpp>
-#include <plustache/plustache_types.hpp>
+#include <plustache/plustache.hpp>
 
 // The fixture for testing class Foo.
 class CollectionsTest : public ::testing::Test
@@ -37,8 +35,8 @@ class CollectionsTest : public ::testing::Test
         template_single_string += "{{/ people}}";
 
         // single entry
-        PlustacheTypes::ObjectType tom;
-        PlustacheTypes::ObjectType jerry;
+        Plustache::Object tom;
+        Plustache::Object jerry;
         tom["name"] = "Tom";
         Plustache::Context ctx_single;
         ctx_single.add("me", "Daniel");
@@ -46,7 +44,7 @@ class CollectionsTest : public ::testing::Test
 
         // multiple entries
         jerry["name"] = "Jerry";
-        PlustacheTypes::CollectionType b_multiple;
+        Plustache::Collection b_multiple;
         b_multiple.push_back(tom);
         b_multiple.push_back(jerry);
         Plustache::Context ctx_multiple;
@@ -56,7 +54,7 @@ class CollectionsTest : public ::testing::Test
         // multiple fields
         tom["work"] = "Accounting";
         jerry["work"] = "Magic";
-        PlustacheTypes::CollectionType b_multiple_fields;
+        Plustache::Collection b_multiple_fields;
         b_multiple_fields.push_back(tom);
         Plustache::Context ctx;
         ctx.add("me", "Daniel");
@@ -105,12 +103,12 @@ TEST_F(CollectionsTest, TestCollectionMultiLine)
     Plustache::Context ctx;
     ctx.add("me", "Daniel");
     
-    PlustacheTypes::ObjectType tom;
+    Plustache::Object tom;
     tom["name"] = "Tom";
     tom["work"] = "Accounting";
     ctx.add("people", tom);
     
-    PlustacheTypes::ObjectType jerry;
+    Plustache::Object jerry;
     jerry["name"] = "Jerry";
     jerry["work"] = "Magic";
     ctx.add("people", jerry);
@@ -145,13 +143,13 @@ TEST_F(CollectionsTest, TestCollectionMultiLineConditionals)
     Plustache::Context ctx;
     ctx.add("me", "Daniel");
     
-    PlustacheTypes::ObjectType tom;
+    Plustache::Object tom;
     tom["name"] = "Tom";
     tom["work"] = "Accounting";
     tom["surprise"] = "false";
     ctx.add("people", tom);
     
-    PlustacheTypes::ObjectType jerry;
+    Plustache::Object jerry;
     jerry["name"] = "Jerry";
     jerry["work"] = "Magic";
     jerry["surprise"] = "true";
